@@ -1,0 +1,44 @@
+
+<div class="list-suggestion-container">
+  <h1 class="page-title">{{ titre }}</h1>
+
+  <div class="search-container">
+    <input
+      type="text"
+      class="search-input"
+      [placeholder]="placeHolderText"
+  />
+  </div>
+
+  <div class="suggestions-list">
+    <div class="suggestion-card" *ngFor="let s of suggestions">
+      <div class="card-header">
+        <h2 class="suggestion-title">{{s.title}}</h2>
+      </div>
+
+      <div class="card-meta">
+        <span class="category">{{s.category}}</span>
+        <span class="date">{{s.date | date}}</span>
+      </div>
+
+      <p class="suggestion-description">{{s.description}}</p>
+
+      <div class="card-footer">
+        <span> {{s.status}}
+        </span>
+
+        <div  class="action-buttons">
+          <button class="btn-like">
+            <span class="icon"></span>
+           nb likes
+          </button>
+          <button class="btn-favorite" (click)="addToFavoris('a')">
+            <span class="icon"></span>
+            Ajouter aux favoris
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
