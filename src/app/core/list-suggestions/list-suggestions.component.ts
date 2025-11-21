@@ -10,10 +10,16 @@ export class ListSuggestionsComponent {
 
 titre:string = "Liste des suggestions";
 placeHolderText : string = "Rechercher une suggestion";
+searchT : string = "";
  list : Suggestion[]=[];
 addToFavoris(sugg:Suggestion){
   this.list.push(sugg);
   console.log(this.list);
+}
+Like(sugg:Suggestion){
+  if (sugg.nbLikes != null){
+  sugg.nbLikes= sugg.nbLikes + 1;
+  }
 }
 
 suggestions: Suggestion[] = [
@@ -23,7 +29,8 @@ title: 'Organiser une journée team building',
 description: 'Suggestion pour organiser une journée de team building pour renforcer les liens entre les membres de l\'équipe.',
 category: 'Événements',
 date: new Date('2025-01-20'),
-status: 'acceptee'
+status: 'acceptee',
+nbLikes : 0,
 },
 {
 id: 2,

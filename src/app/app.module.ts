@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { ListSuggestionsComponent } from './core/list-suggestions/list-suggestions.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ //les composants liés à ce module
@@ -16,7 +17,8 @@ import { ListSuggestionsComponent } from './core/list-suggestions/list-suggestio
   ],
   imports: [ //les packages dont on a besoin dans ce module
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

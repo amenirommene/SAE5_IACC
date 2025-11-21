@@ -7,11 +7,14 @@
       type="text"
       class="search-input"
       [placeholder]="placeHolderText"
+      [(ngModel)]="searchT"
   />
   </div>
 
   <div class="suggestions-list">
-    <div class="suggestion-card" *ngFor="let s of suggestions">
+    <div *ngFor="let s of suggestions">
+    <div class="suggestion-card"
+    *ngIf="s.title.toLowerCase().includes(searchT.toLowerCase())">
       <div class="card-header">
         <h2 class="suggestion-title">{{s.title}}</h2>
       </div>
@@ -32,11 +35,11 @@
         </span>
 
         <div  class="action-buttons">
-          <button class="btn-like"
+          <button class="btn-like" (click)="Like(s)"
           [style.display]="s.status == 'refusee' ? 'none' : 'block'" >
           <!--- <button class="btn-like" *ngIf="s.status != 'refusee'>---->
             <span class="icon"></span>
-           nb likes
+           {{s.nbLikes}}
           </button>
           <button class="btn-favorite" [disabled]="s.status == 'refusee'" (click)="addToFavoris(s)">
             <span class="icon"></span>
@@ -44,6 +47,7 @@
           </button>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </div>
