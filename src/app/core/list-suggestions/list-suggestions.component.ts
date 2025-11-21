@@ -7,10 +7,13 @@ import { Suggestion } from '../../models/suggestion';
   styleUrl: './list-suggegestions.component.css'
 })
 export class ListSuggestionsComponent {
+
 titre:string = "Liste des suggestions";
 placeHolderText : string = "Rechercher une suggestion";
-addToFavoris(ch:string){
-  console.log("click testé");
+ list : Suggestion[]=[];
+addToFavoris(sugg:Suggestion){
+  this.list.push(sugg);
+  console.log(this.list);
 }
 
 suggestions: Suggestion[] = [

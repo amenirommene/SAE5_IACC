@@ -18,21 +18,27 @@
 
       <div class="card-meta">
         <span class="category">{{s.category}}</span>
-        <span class="date">{{s.date | date}}</span>
+        <span class="date">{{s.date | date:"dd MMM yyyy"}}</span>
       </div>
 
       <p class="suggestion-description">{{s.description}}</p>
 
       <div class="card-footer">
-        <span> {{s.status}}
+        <span class="status-badge" [ngClass]="
+         {'status-refused':s.status=='refusee',
+          'status-accepted':s.status=='acceptee',
+          'status-pending':s.status=='en_attente'
+        }"> {{s.status | uppercase}}
         </span>
 
         <div  class="action-buttons">
-          <button class="btn-like">
+          <button class="btn-like"
+          [style.display]="s.status == 'refusee' ? 'none' : 'block'" >
+          <!--- <button class="btn-like" *ngIf="s.status != 'refusee'>---->
             <span class="icon"></span>
            nb likes
           </button>
-          <button class="btn-favorite" (click)="addToFavoris('a')">
+          <button class="btn-favorite" [disabled]="s.status == 'refusee'" (click)="addToFavoris(s)">
             <span class="icon"></span>
             Ajouter aux favoris
           </button>

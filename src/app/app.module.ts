@@ -9,7 +9,10 @@ import { ListSuggestionsComponent } from './core/list-suggestions/list-suggestio
 
 @NgModule({
   declarations: [ //les composants liés à ce module
-    AppComponent, HeaderComponent, FooterComponent, ListSuggestionsComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    ListSuggestionsComponent
   ],
   imports: [ //les packages dont on a besoin dans ce module
     BrowserModule,
