@@ -7,9 +7,12 @@ import { SuggestionDetailsComponent } from './suggestion-details/suggestion-deta
 const routes: Routes = [
   { path: '', component: SuggestionsComponent, children:[
     //localhost:4200/suggestions
-    {path:'', component:ListSuggestionsComponent},
-     //localhost:4200/suggestions/details/1
+    {path:'', component:ListSuggestionsComponent, children:[
+      //localhost:4200/suggestions/details/1
     {path:'details/:id', component:SuggestionDetailsComponent}
+    ]},
+     //localhost:4200/suggestions/details/1
+   // {path:'details/:id', component:SuggestionDetailsComponent}
   ] }];
 
 @NgModule({
