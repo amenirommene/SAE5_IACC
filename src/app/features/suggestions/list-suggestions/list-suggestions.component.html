@@ -1,0 +1,58 @@
+
+<div class="list-suggestion-container">
+  <h1 class="page-title">{{ titre }}</h1>
+
+  <div class="search-container">
+    <input
+      type="text"
+      class="search-input"
+      [placeholder]="placeHolderText"
+      [(ngModel)]="searchT"
+  />
+  </div>
+
+  <div class="suggestions-list">
+    <div *ngFor="let s of suggestions">
+    <div class="suggestion-card"
+    *ngIf="s.title.toLowerCase().includes(searchT.toLowerCase())">
+      <div class="card-header">
+        <h2 class="suggestion-title">{{s.title}}</h2>
+      </div>
+
+      <div class="card-meta">
+        <span class="category">{{s.category}}</span>
+        <span class="date">{{s.date | date:"dd MMM yyyy"}}</span>
+      </div>
+
+      <p class="suggestion-description">{{s.description}}</p>
+
+      <div class="card-footer">
+        <span class="status-badge" [ngClass]="
+         {'status-refused':s.status=='refusee',
+          'status-accepted':s.status=='acceptee',
+          'status-pending':s.status=='en_attente'
+        }"> {{s.status | uppercase}}
+        </span>
+
+        <div  class="action-buttons">
+          <button class="btn-like" (click)="Like(s)"
+          [style.display]="s.status == 'refusee' ? 'none' : 'block'" >
+          <!--- <button class="btn-like" *ngIf="s.status != 'refusee'>---->
+            <span class="icon"></span>
+           {{s.nbLikes}}
+          </button>
+          <button class="btn-favorite" [disabled]="s.status == 'refusee'" (click)="addToFavoris(s)">
+            <span class="icon"></span>
+            Ajouter aux favoris
+          </button>
+          <button class="btn-favorite" [routerLink]="['details',s.id]">
+
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
