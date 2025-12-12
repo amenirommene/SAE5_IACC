@@ -9,6 +9,7 @@ import { ListSuggestionsComponent } from './features/suggestions/list-suggestion
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './core/home/home.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [ //les composants liés à ce module
@@ -22,7 +23,7 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [provideHttpClient()], //pour pouvoir utiliser HttpClient dans l'application
   bootstrap: [AppComponent]
 })
 export class AppModule { }

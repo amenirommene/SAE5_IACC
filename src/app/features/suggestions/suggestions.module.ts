@@ -1,3 +1,4 @@
+import { Suggestion } from './../../models/suggestion';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -7,6 +8,7 @@ import { ListSuggestionsComponent } from './list-suggestions/list-suggestions.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SuggestionDetailsComponent } from './suggestion-details/suggestion-details.component';
 import { SuggestionFormComponent } from './suggestion-form/suggestion-form.component';
+import { SuggestionService } from '../../core/services/suggestion.service';
 
 
 @NgModule({
@@ -21,6 +23,7 @@ import { SuggestionFormComponent } from './suggestion-form/suggestion-form.compo
     SuggestionsRoutingModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  //providers: [SuggestionService]
 })
 export class SuggestionsModule { }

@@ -1,4 +1,4 @@
-<form class="p-3" [formGroup]="myForm">
+<form class="p-3" [formGroup]="myForm" (ngSubmit)="onSubmit()">
 
 
 
@@ -32,17 +32,17 @@
 
 
 
-  <!----- <div class="text-danger">
+   <div class="text-danger" *ngIf="myForm.get('description')?.touched && myForm.get('description')?.invalid">
 
-   <small>Description obligatoire.</small>
+   <small *ngIf="myForm.get('description')?.errors?.['required']">Description obligatoire.</small>
 
-   <small>
+   <small *ngIf="myForm.get('description')?.errors?.['minlength']">
 
     Minimum 30 caractères.
 
    </small>
 
-  </div>---->
+  </div>
 
  </div>
 
@@ -52,7 +52,7 @@
 
   <label>Catégorie</label>
 
-  <select formControlName="category" class="form-select">
+  <select formControlName="category" class="form-select" >
 
    <option value="">-- Choisir une catégorie --</option>
 
@@ -62,11 +62,11 @@
 
 
 
- <!---<div class="text-danger">
+<div class="text-danger" *ngIf="myForm.get('category')?.invalid && myForm.get('category')?.touched">
 
    <small>Catégorie obligatoire.</small>
 
-  </div>---->
+  </div>
 
  </div>
 
@@ -76,7 +76,7 @@
 
   <label>Date</label>
 
-  <input formControlName="date" type="text" class="form-control" >
+  <input formControlName="date" type="text" class="form-control" readonly>
 
  </div>
 
@@ -86,7 +86,7 @@
 
   <label>Status</label>
 
-  <input formControlName="status" type="text" class="form-control" >
+  <input formControlName="status" type="text" class="form-control" readonly>
 
  </div>
 
