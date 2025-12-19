@@ -75,7 +75,7 @@ status:'acceptee'
  deleteSuggestion(id:number): Observable<Suggestion> {
    return this._http.delete<Suggestion>(this.suggestionUrl+"/"+id);
   }
-  getSuggestionById(id:number): Observable<Suggestion> {
-   return this._http.get<Suggestion>(this.suggestionUrl+"/"+id);
+  getSuggestionById(id:number): Observable<any> {
+   return this._http.get<any>(this.suggestionUrl+"/"+id);
   }
 }
